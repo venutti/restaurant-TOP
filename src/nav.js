@@ -7,7 +7,7 @@ export default class Nav {
     element.classList.add('nav');
     element.innerHTML = 
     this.navItems.map(item => {
-      return `<li class="nav-item">${item}</li>`;
+      return `<li class="nav-item" data-layout=${item}>${item}</li>`;
     }).join('');
     return element;
   };
