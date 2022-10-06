@@ -1,13 +1,3 @@
-/*
-<div class="title">NUESTRAS BURGUERS</div>
-<div class="product">
-  <div class="product-name">Classic Cheese (con papas)</div>
-  <div class="product-description">Medallón de carne 160gr, doble cheddar</div>
-  <div class="product-prev-price">$900</div>
-  <div class="product-actual-price">$810</div>
-  <div class="product-img" style="background-image: url('img/products/161189.jpeg');"></div>
-</div>
-*/
 class Product {
   constructor(productData) {
     this.name = productData.name || 'Producto X';

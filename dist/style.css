@@ -4,13 +4,14 @@
 :root {
   --dark: #0F0E0E;
   --light: #EEEEEE;
-  --primary: rgb(84, 18, 18);
-  --secondary: rgb(208, 190, 116);
+  --primary: #541212;
+  --secondary: #D0BE74;
 
   --max-width: 800px;
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
+  --spacing-md: 2rem;
 
   --transition-effect: all 0.3s ease-in-out;
 }
@@ -98,15 +99,18 @@ body {
   font-family: 'Alkalami', serif;
   font-size: 2rem;
 }
-.product {
-  cursor: pointer;
+.product,
+.info {
   border: 3px solid var(--primary);
   border-radius: 15px;
-  padding: var(--spacing-xs);
-  padding-left: var(--spacing-sm);
   background-color: var(--dark);
   width: 100%;
   max-width: var(--max-width);
+}
+.product {
+  padding: var(--spacing-xs);
+  padding-left: var(--spacing-sm);
+  cursor: pointer;
   min-height: 150px;
   display: grid;
   gap: 10px;
@@ -148,4 +152,28 @@ body {
   background-position: center;
   background-size: cover;
   height: 100%;
+}
+
+.info {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.contact-item {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+.contact-item img {
+  width: 35px;
+  height: 35px;
 }
