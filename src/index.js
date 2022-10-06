@@ -2,6 +2,8 @@ import Header from './header.js';
 import Nav from './nav.js';
 import Products from './products.js';
 
+const body = document.querySelector('body');
+
 const dataProducts = [
   {
     name: 'Classic Cheese (con papas)',
@@ -24,12 +26,48 @@ const dataProducts = [
   },
 ];
 
-const body = document.querySelector('body');
+function clearActiveItems() {
+  const navItems = Array.from(document.querySelectorAll('.nav-item'));
+  navItems.forEach(item => {
+    item.classList.remove('active');
+  });
+};
+
+function clearMain() {
+  const main = document.querySelector('.main');
+  if(!main) return;
+  main.remove();
+};
+
+function showLayout(item, dictLayouts) {
+  if(item.classList.contains('active')) return;
+  clearActiveItems();
+  clearMain();
+  item.classList.add('active');
+  body.appendChild(dictLayouts[item.dataset.layout].HTML);
+};
 
 const header = new Header('img/logo.png');
-const nav = new Nav(['BIENVENIDOS', 'MENU', 'CONTACTO', 'INFO']);
+const nav = new Nav(['BIENVENIDOS', 'MENU', 'CONTACTO']);
 const products = new Products(dataProducts);
 
 body.appendChild(header.HTML);
 body.appendChild(nav.HTML);
-body.appendChild(products.HTML);
+
+const menuButton = document.querySelector('[data-layout="MENU"]');
+
+const dictLayouts = {
+  'BIENVENIDOS': products,
+  'MENU': products,
+  'CONTACTO': products,
+};
+
+showLayout(menuButton, dictLayouts);
+
+Array.from(document.querySelectorAll('.nav-item')).forEach(item => {
+  console.log(item);
+  item.addEventListener('click', e => {
+    showLayout(e.target, dictLayouts);
+  });
+});
+
